@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
-import { useLogin } from "../hooks/useLogin";
+import useLogin from "../hooks/useLogin";
+
 
 const Login = () => {
     const { login } = useLogin();
@@ -14,7 +15,7 @@ const Login = () => {
         setError("");
         try {
             await login(email, password);
-            navigate("/kanban");
+            navigate("/tasks");
         } catch (err) {
             console.log(err);
             setError("Credenciales incorrectas. Inténtalo de nuevo. ");

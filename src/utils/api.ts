@@ -1,4 +1,5 @@
 import axios from "axios";
+import { getToken } from "./token";
 
 const api = axios.create({
     baseURL: import.meta.env.VITE_API_URL,
@@ -8,7 +9,7 @@ const api = axios.create({
 })
 
 api.interceptors.request.use((config) => {
-    const token = localStorage.getItem("token");
+    const token = getToken();
     console.log("Token:", token);
     if (token !== null && token !== undefined && token !== "undefined") {
         config.headers = config.headers || {};
