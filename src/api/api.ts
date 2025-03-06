@@ -8,10 +8,15 @@ const api = axios.create({
 })
 
 api.interceptors.request.use((config) => {
-    const token = localStorage.getItem(import.meta.env.VITE_API_TOKEN);
-    if (token) {
-        config.headers.Authorization = `Bearer ${token}`
+    const token = localStorage.getItem("token");
+    console.log("Token:", token);
+    if (token !== null && token !== undefined && token !== "undefined") {
+        config.headers = config.headers || {};
+        config.headers.Authorization = `Bearer ${token}`;
+    } else {
+        console.log("No hay token o es undefined/null");
     }
+
     return config;
 })
 
@@ -21,6 +26,7 @@ export const getRequest = async (url: string, params = {}) => {
 };
 
 export const postRequest = async (url: string, data = {}) => {
+    console.log("data: ", data);
     return api.post(url, data);
 };
 
