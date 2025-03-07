@@ -3,6 +3,7 @@ import AppRoutes from "./routes/AppRoutes";
 import { Tooltip } from "react-tooltip";
 import "react-toastify/dist/ReactToastify.css";
 import "react-tooltip/dist/react-tooltip.css";
+
 const App = () => {
   return (
     <>

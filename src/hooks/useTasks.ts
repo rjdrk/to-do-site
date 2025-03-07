@@ -68,7 +68,17 @@ const useTasks = () => {
         }
     };
 
-    return { tasks, loading, error, addTask, toggleTask, removeTask, page, setPage, totalPages };
+    return {
+        tasks,
+        loading,
+        error,
+        page,
+        setPage,
+        totalPages,
+        addTask,
+        toggleTask,
+        removeTask
+    };
 };
 
 export default useTasks;

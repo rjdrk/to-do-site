@@ -4,7 +4,7 @@ import LoginContext from '../context/LoginProvider';
 const useLogin = () => {
     const context = useContext(LoginContext);
     if (!context) {
-        throw new Error("useAuth debe de estar dentro de un LoginProvider")
+        throw new Error("useLogin debe de estar dentro de un LoginProvider")
     }
     return context;
 }

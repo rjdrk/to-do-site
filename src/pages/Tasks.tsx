@@ -22,8 +22,6 @@ const Tasks = () => {
     return (
         <div className="p-4 max-w-xl mx-auto">
             <h1 className="text-2xl font-bold mb-4">Lista de Tareas</h1>
-
-            {/* Formulario para agregar tarea */}
             {/* Botón para abrir el modal */}
             <button
                 onClick={() => setIsAddModalOpen(true)}

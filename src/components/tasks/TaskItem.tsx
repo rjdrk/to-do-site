@@ -41,7 +41,7 @@ const TaskItem: FC<TaskItemProps> = ({ task, onView, onToggle, onDelete }) => {
                     onClick={() => onToggle(task.id)}
                     className={`p-2 rounded ${task.is_completed ? "bg-green-500" : "bg-gray-400"} text-white`}
                     data-tooltip-id="tooltip"
-                    data-tooltip-content="Actualizar tarea"
+                    data-tooltip-content="Actualizar estado de la tarea"
                 >
                     <FaCheck />
                 </button>
