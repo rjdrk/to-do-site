@@ -2,6 +2,7 @@ import { FC } from "react";
 import { Task } from "../../types/Task";
 import { FaCheck, FaEye, FaTrash } from "react-icons/fa";
 
+
 interface TaskItemProps {
     task: Task;
     onView: (task: Task) => void;
@@ -31,20 +32,24 @@ const TaskItem: FC<TaskItemProps> = ({ task, onView, onToggle, onDelete }) => {
                 <button
                     onClick={() => onView(task)}
                     className="bg-blue-500 text-white p-2 rounded"
-
+                    data-tooltip-id="tooltip"
+                    data-tooltip-content="Ver tarea"
                 >
                     <FaEye />
                 </button>
                 <button
                     onClick={() => onToggle(task.id)}
-                    className={`p-2 rounded ${task.is_completed ? "bg-green-500" : "bg-gray-400"
-                        } text-white`}
+                    className={`p-2 rounded ${task.is_completed ? "bg-green-500" : "bg-gray-400"} text-white`}
+                    data-tooltip-id="tooltip"
+                    data-tooltip-content="Actualizar tarea"
                 >
                     <FaCheck />
                 </button>
                 <button
                     onClick={() => onDelete(task.id)}
                     className="bg-red-500 text-white p-2 rounded"
+                    data-tooltip-id="tooltip"
+                    data-tooltip-content="Eliminar tarea"
                 >
                     <FaTrash />
                 </button>

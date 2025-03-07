@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { getTasks, createTask, updateTask, deleteTask } from "../api/tasks";
 import { Task } from "../types/Task";
 import { getUserEmail } from "../utils/token";
+import { toast } from "react-toastify";
 
 const useTasks = () => {
     const [tasks, setTasks] = useState<Task[]>([]);
@@ -38,8 +39,10 @@ const useTasks = () => {
         try {
             await createTask(user_email, title, description);
             fetchTasks();
+            toast.success("Tarea creada exitosamente!");
         } catch (err) {
             console.error("Error al crear la tarea:", err);
+            toast.error("Error al crear la tarea.");
         }
     };
 
@@ -47,8 +50,10 @@ const useTasks = () => {
         try {
             await updateTask(task_id);
             fetchTasks();
+            toast.info("Estado de la tarea actualizado.");
         } catch (err) {
             console.error("Error al actualizar la tarea:", err);
+            toast.error("Error al actualizar la tarea.");
         }
     };
 
@@ -56,8 +61,10 @@ const useTasks = () => {
         try {
             await deleteTask(task_id);
             fetchTasks();
+            toast.warn("Tarea eliminada.");
         } catch (err) {
             console.error("Error al eliminar la tarea:", err);
+            toast.error("No se pudo eliminar la tarea.");
         }
     };
 
