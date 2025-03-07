@@ -26,3 +26,11 @@ export const isTokenValid = (token: string): boolean => {
     const now = Math.floor(Date.now() / 1000);
     return decoded.exp > now;
 };
+
+export const getUserEmail = (): string | null => {
+    const token = getToken();
+    if (!token) return null;
+
+    const decoded = decodeToken(token);
+    return decoded?.email || null;
+};
