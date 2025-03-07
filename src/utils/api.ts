@@ -36,10 +36,10 @@ api.interceptors.response.use(
 
 
 // Métodos para interactuar con la API
-export const getRequest = async (url: string, params = {}) => {
+export const getRequest = async (url: string) => {
     console.log(url);
-    console.log("params -> ", JSON.stringify(params, null, 1));
-    return api.get(url, params);
+
+    return api.get(url);
 };
 
 export const postRequest = async (url: string, data = {}) => {

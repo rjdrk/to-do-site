@@ -1,13 +1,15 @@
-import React from "react";
+import { FC } from "react";
 import { Task } from "../../types/Task";
+import { FaCheck, FaEye, FaTrash } from "react-icons/fa";
 
 interface TaskItemProps {
     task: Task;
+    onView: (task: Task) => void;
     onToggle: (id: number) => void;
     onDelete: (id: number) => void;
 }
 
-const TaskItem: React.FC<TaskItemProps> = ({ task, onToggle, onDelete }) => {
+const TaskItem: FC<TaskItemProps> = ({ task, onView, onToggle, onDelete }) => {
     return (
         <li className="flex justify-between items-center p-2 border-b">
             <div>
@@ -27,17 +29,24 @@ const TaskItem: React.FC<TaskItemProps> = ({ task, onToggle, onDelete }) => {
             </div>
             <div className="flex gap-2">
                 <button
+                    onClick={() => onView(task)}
+                    className="bg-blue-500 text-white p-2 rounded"
+
+                >
+                    <FaEye />
+                </button>
+                <button
                     onClick={() => onToggle(task.id)}
                     className={`p-2 rounded ${task.is_completed ? "bg-green-500" : "bg-gray-400"
                         } text-white`}
                 >
-                    ✅
+                    <FaCheck />
                 </button>
                 <button
                     onClick={() => onDelete(task.id)}
                     className="bg-red-500 text-white p-2 rounded"
                 >
-                    🗑️
+                    <FaTrash />
                 </button>
             </div>
         </li>

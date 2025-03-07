@@ -2,8 +2,6 @@ import { deleteRequest, getRequest, patchRequest, postRequest } from '../utils/a
 
 // Obtener la lista de tareas con paginación y orden
 export const getTasks = async (limit: number, page: number, order: string) => {
-    const params = { limit, page, order }
-
     const response = await getRequest(`/tasks?limit=${limit}&page=${page}&order=${order}`,);
     return response.data;
 };

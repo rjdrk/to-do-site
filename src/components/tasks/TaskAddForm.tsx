@@ -5,7 +5,7 @@ interface TaskFormProps {
     onClose: () => void;
 }
 
-const TaskForm: FC<TaskFormProps> = ({ onAddTask, onClose }) => {
+const TaskAddForm: FC<TaskFormProps> = ({ onAddTask, onClose }) => {
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     const [error, setError] = useState("");
@@ -48,5 +48,5 @@ const TaskForm: FC<TaskFormProps> = ({ onAddTask, onClose }) => {
     );
 };
 
-export default TaskForm;
+export default TaskAddForm;
 
